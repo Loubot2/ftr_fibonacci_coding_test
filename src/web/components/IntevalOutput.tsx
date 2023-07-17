@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import eventBus from '../EventBus';
+import { useEffect, useRef } from 'react'
+import eventBus from '../EventBus'
 import { convertNumbersToString, type NumberFrequency } from '../../core/numberInput'
 
 interface OutputProps {
@@ -23,14 +23,14 @@ const IntervalOutput = ({ interval, paused, numbers }: OutputProps) => {
       }
       if (delay !== null) {
         const id = setInterval(tick, delay)
-        return () => { clearInterval(id) };
+        return () => { clearInterval(id) }
       }
     }, [delay])
   }
 
   const addMessage = (message: string) => {
     eventBus.dispatch('addMessage', { message, type: 'report' })
-  };
+  }
 
   if (interval > 0) {
     useInterval(() => {
@@ -41,8 +41,8 @@ const IntervalOutput = ({ interval, paused, numbers }: OutputProps) => {
   }
 
   return (
-    <div></div>
-  );
-};
+    <></>
+  )
+}
 
-export default IntervalOutput;
+export default IntervalOutput

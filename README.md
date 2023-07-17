@@ -1,4 +1,6 @@
-# ftr_fibonacci_coding_test
+# FTR Fibonacci Game
+
+## Part 1
 
 # Fibonacci
 Code is split in to 2 parts. 
@@ -7,16 +9,13 @@ contains the main logic
 ### web
 contains the ui this uses react
 
-# Getting Started with Fibonacci
+# Getting Started with Fibonacci Game
 
 This project requires Node to run
 
 ## Setup
 ### `npm ci`
 install libs
-
-### `npm run compile`
-compile tsc
 
 ## To start UI
 ### `npm start`
@@ -44,16 +43,24 @@ The build is minified .\
 Your app is ready to be deployed!
 
 
-Part 2: Changes to your application
-1. You have a new requirement to implement for your application: its logic should stay
-exactly the same but it will need to have a different user interface (e.g. if you wrote a
-web app, a different UI may be a REPL).
-Please describe how you would go about implementing this new UI in your application?
-Would you need to restructure your solution in any way?
+### Part 2: Changes to your application
 
-2. You now need to make your application “production ready”, and deploy it so that it can
-be used by customers.
-Please describe the steps you’d need to take for this to happen.
+##  You have a new requirement to implement for your application: its logic should stay exactly the same but it will need to have a different user interface (e.g. if you wrote a web app, a different UI may be a REPL). Please describe how you would go about implementing this new UI in your application? Would you need to restructure your solution in any way?
 
-3. What did you think about this coding test - is there anything you’d suggest in order to
-improve it?
+If I was going to implement this as a CLI. I would keep core as is there is no react code in there and it is the main logic. I would definately need to redo the web part as pages wouldn't make sense. I would keep the event bus and implement it differently as document isn't available. I would look for an event bus libary.  I could then still have a listener to output to the user.
+
+I would refactor IntervalOutput to move logic over to core and make is not so tightly coupled.
+
+##  You now need to make your application “production ready”, and deploy it so that it can be used by customers. Please describe the steps you’d need to take for this to happen.
+solution has some production ready features such as Babel, tsc and webpack
+1. increase code coverage
+2. add git hooks
+  2.1. auto lint on commit/push
+  2.2. github action for branch/main
+3. build to ci
+  3.1. npm test > output code coverage
+  3.2. npm build
+  3.3 deploy to cloud statically using code like pulumi
+
+##  What did you think about this coding test - is there anything you’d suggest in order to improve it?
+There are a lot of parts to this coding test. It took a bit for me to get my head around it. Maybe make the description a bit clearer. Also make it clearer what you expect. e.g. tests etc.

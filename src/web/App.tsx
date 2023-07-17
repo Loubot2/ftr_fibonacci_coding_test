@@ -1,24 +1,32 @@
-import { BrowserRouter as Router, Routes, Route }
-  from 'react-router-dom';
-import Game from './pages/GamePage';
-import Quit from './pages/Quit';
-import Start from './pages/Start';
-import { Container } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation }
+  from 'react-router-dom'
+import Game from './pages/GamePage'
+import Quit from './pages/QuitPage'
+import Start from './pages/StartPage'
+import { Container } from '@mui/material'
+
+function GameRoutes () {
+  const navigate = useNavigate()
+  const state = useLocation().state
+  return (
+            <Routes>
+                <Route path='/' element={<Start navigate={navigate} />} />
+                <Route path='/quit' element={<Quit navigate={navigate} state={state} />} />
+                <Route path='/start' element={<Start navigate={navigate} />} />
+                <Route path='/game' element={<Game navigate={navigate} state={state} />} />
+            </Routes>
+  )
+}
 
 function App () {
   return (
         <Container>
-        `    <h1 className="display-4">Fibonacci</h1>
+           <h1 className="display-4">Fibonacci</h1>
         <Router>
-            <Routes>
-                <Route path='/' element={<Start />} />
-                <Route path='/quit' element={<Quit />} />
-                <Route path='/start' element={<Start />} />
-                <Route path='/game' element={<Game />} />
-            </Routes>
+            <GameRoutes/>
         </Router>
         </Container>
-  );
+  )
 }
 
-export default App;
+export default App

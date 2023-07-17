@@ -1,22 +1,25 @@
-import { Container } from '@mui/material';
-import Game from '../components/Game';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Container } from '@mui/material'
+import Game from '../components/Game'
+import { type PageProps } from './types'
 
-const GamePage = () => {
-  const navigate = useNavigate();
+export type GamePageProps = PageProps & {
+  state: {
+    interval: number
+  }
+}
 
-  const { state } = useLocation();
-  const interval: number = state.interval;
+const GamePage = ({ navigate, state }: GamePageProps) => {
+  const interval: number = state.interval
 
   const onQuit = (numbersOutput: string) => {
-    navigate('/quit', { state: { numbersOutput } });
-  };
+    navigate('/quit', { state: { numbersOutput } })
+  }
 
   return (
     <Container>
       <Game onQuit={onQuit} interval={interval} />
   </Container>
-  );
-};
+  )
+}
 
-export default GamePage;
+export default GamePage

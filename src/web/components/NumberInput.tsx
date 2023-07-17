@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import Button from '@mui/material/Button'
-import { Container, OutlinedInput, FormControl, InputLabel, Grid, Box, ButtonGroup } from '@mui/material'
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+import { Container, OutlinedInput, FormControl, InputLabel, Grid, Box, ButtonGroup } from '@mui/material';
 
 interface NumberFrequencyProps {
-  onSubmit: (newNumber: string) => void
+  onSubmit: (newNumber: string) => void;
 }
 
 const NumberInputControl = ({ onSubmit }: NumberFrequencyProps) => {
-  const [number, setNumber] = useState<string>('')
+  const [number, setNumber] = useState<string>('');
   return (
   <Container>
     <Grid>
-      <InputLabel id="demo-simple-select-label">Please enter the next number</InputLabel>
+      <InputLabel >Please enter the next number</InputLabel>
       <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
           <OutlinedInput
-            id="outlined-adornment-weight"
-            aria-describedby="outlined-weight-helper-text"
+            id="number-input"
+            data-testid="number-input"
             inputProps={{
               'aria-label': 'number',
               inputMode: 'numeric',
@@ -42,7 +42,7 @@ const NumberInputControl = ({ onSubmit }: NumberFrequencyProps) => {
     </ButtonGroup>
     </Box>
   </Container>
-  )
+  );
 };
 
-export default NumberInputControl
+export default NumberInputControl;

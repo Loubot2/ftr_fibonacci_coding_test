@@ -31,7 +31,7 @@ const IntervalInput = ({ onChange, interval }: IntervalInputProps) => {
           <FormHelperText id="outlined-weight-helper-text">Interval</FormHelperText>
         </FormControl>
     </Grid>)
-};
+}
 
 interface IntervalControlProps {
   onStart: (interval: number) => void
@@ -60,6 +60,6 @@ const IntervalControl = ({ onStart }: IntervalControlProps) => {
     </ButtonGroup>
     </Box>
   </Container>
-};
+}
 
 export default IntervalControl
