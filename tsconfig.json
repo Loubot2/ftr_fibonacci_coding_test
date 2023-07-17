@@ -10,9 +10,10 @@
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames":true,
     "skipLibCheck": true,
-    "esModuleInterop": true,   
+    "esModuleInterop": true,  
+    "strictNullChecks": true 
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "typeRoots": [
     "./typings",
     "./node_modules/@types/"

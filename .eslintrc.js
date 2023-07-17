@@ -17,6 +17,15 @@ module.exports = {
   plugins: [
     'react'
   ],
+  "ignorePatterns": ["**/*.html", "**/*.css"],
   rules: {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off"
+  },
+  settings: {
+    react: {
+      version: "detect"
+    }
   }
 }

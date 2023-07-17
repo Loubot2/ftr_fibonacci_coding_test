@@ -1,6 +1,5 @@
-import React from 'react'
-import Button from '@mui/material/Button'
-import { Container, Grid, Box, ButtonGroup } from '@mui/material'
+import Button from '@mui/material/Button';
+import { Container, Grid, Box, ButtonGroup } from '@mui/material';
 import PauseIcon from '@mui/icons-material/Pause';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 interface ButtonProps {
@@ -26,7 +25,7 @@ const ButtonControl = ({ onToggle, paused }: ButtonProps) => {
     </ButtonGroup>
     </Box>
   </Container>
-  )
+  );
 }
 
 export default ButtonControl

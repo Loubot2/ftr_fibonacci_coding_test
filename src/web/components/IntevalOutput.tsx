@@ -1,49 +1,48 @@
-import  {useEffect, useRef} from 'react'
-import eventBus from "../EventBus";
-import { convertNumbersToString, NumberFrequency } from '../../core/numberInput'
+import { useEffect, useRef } from 'react';
+import eventBus from '../EventBus';
+import { convertNumbersToString, type NumberFrequency } from '../../core/numberInput'
 
 interface OutputProps {
-  interval?: number
+  interval: number
   paused: boolean
-  numbers: Map<string,NumberFrequency>
+  numbers: Map<string, NumberFrequency>
 }
 const IntervalOutput = ({ interval, paused, numbers }: OutputProps) => {
+  function useInterval (callback, delay) {
+    const savedCallback: any = useRef()
 
-  function useInterval(callback, delay) {
-    const savedCallback: any = useRef();
-  
     // Remember the latest callback.
     useEffect(() => {
-      savedCallback.current = callback;
-    }, [callback]);
-  
+      savedCallback.current = callback
+    }, [callback])
+
     // Set up the interval.
     useEffect(() => {
-      function tick() {
-        if(savedCallback.current !== undefined) {savedCallback.current()};
+      function tick () {
+        if (savedCallback.current !== undefined) { savedCallback.current() };
       }
       if (delay !== null) {
-        let id = setInterval(tick, delay);
-        return () => clearInterval(id);
+        const id = setInterval(tick, delay)
+        return () => { clearInterval(id) };
       }
-    }, [delay]);
+    }, [delay])
   }
 
   const addMessage = (message: string) => {
-    eventBus.dispatch("addMessage", { message: message, type: 'report' });
+    eventBus.dispatch('addMessage', { message, type: 'report' })
   };
 
-  if(interval && interval > 0) {
-      useInterval(() => {
-        if(!paused) {
-          addMessage(convertNumbersToString(numbers));
-        }
-      }, (interval * 1000));
+  if (interval > 0) {
+    useInterval(() => {
+      if (!paused) {
+        addMessage(convertNumbersToString(numbers))
+      }
+    }, (interval * 1000))
   }
 
   return (
     <div></div>
-  )
-}
+  );
+};
 
-export default IntervalOutput
+export default IntervalOutput;

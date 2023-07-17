@@ -1,20 +1,20 @@
-import React from 'react'
-import { Container, Box } from '@mui/material'
-import {Link, useLocation} from "react-router-dom";
-// import { NumberFrequency } from '../../core/numberInput'
+import { Container, Box, Paper } from '@mui/material';
+import { Link, useLocation } from 'react-router-dom';
 
 const Quit = () => {
-  let { state } = useLocation();
+  const { state } = useLocation();
   return (
   <Container>
+    <Paper elevation={3} >
       <Box margin={5}>
-      {state.numbersOutput}
-      </Box>    
+        Numbers and frequency: {state.numbersOutput}
+      </Box>
+      </Paper>
       <Box margin={5}>
       Thanks for playing, <Link to="..">play again</Link>.
       </Box>
   </Container>
   )
-}
+};
 
-export default Quit
+export default Quit;

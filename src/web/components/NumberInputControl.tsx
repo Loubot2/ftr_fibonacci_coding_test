@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Button from '@mui/material/Button'
 import { Container, OutlinedInput, FormControl, InputLabel, Grid, Box, ButtonGroup } from '@mui/material'
+
 interface NumberFrequencyProps {
   onSubmit: (newNumber: string) => void
 }
@@ -17,7 +18,8 @@ const NumberInputControl = ({ onSubmit }: NumberFrequencyProps) => {
             aria-describedby="outlined-weight-helper-text"
             inputProps={{
               'aria-label': 'number',
-              inputMode: 'numeric', pattern: '[0-9]*'
+              inputMode: 'numeric',
+              pattern: '[0-9]*'
             }}
             onChange={(e) => {
               if (number !== e.target.value) {
@@ -31,8 +33,8 @@ const NumberInputControl = ({ onSubmit }: NumberFrequencyProps) => {
     </Grid>
     <Box margin={5}>
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
-      <Button 
-      disabled={!number}
+      <Button
+      disabled={number.length === 0}
       onClick={() => {
         onSubmit(number)
         setNumber('')
@@ -41,6 +43,6 @@ const NumberInputControl = ({ onSubmit }: NumberFrequencyProps) => {
     </Box>
   </Container>
   )
-}
+};
 
 export default NumberInputControl
