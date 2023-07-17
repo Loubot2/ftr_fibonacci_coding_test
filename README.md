@@ -52,7 +52,8 @@ If I was going to implement this as a CLI. I would keep core as there is no reac
 I would refactor IntervalOutput to move logic over to core and make it not so tightly coupled.
 
 ##  You now need to make your application “production ready”, and deploy it so that it can be used by customers. Please describe the steps you’d need to take for this to happen.
-solution has some production ready features such as Babel, tsc and webpack
+solution has some production-ready features such as Babel, tsc and webpack
+additionally, I would do the following:
 1. increase code coverage
 2. add git hooks
   2.1. auto lint on commit/push
@@ -63,4 +64,4 @@ solution has some production ready features such as Babel, tsc and webpack
   3.3 deploy to cloud statically using code like pulumi
 
 ##  What did you think about this coding test - is there anything you’d suggest in order to improve it?
-I liked the coding test it was an interesting challenge. There are a lot of parts to this coding test which may be hard for developers that don't have much. It took a bit for me to get my head around it. My suggestion is to make the description a bit clearer. Also, make it clearer what you looking for. e.g. tests.
+I liked the coding test. It was an interesting challenge. There are a lot of parts to this coding test that may be hard for developers who need to juggle other commitments. It took a bit for me to get my head around it. I suggest making the description a bit clearer. Also, make it clearer what you looking for. e.g. tests.
