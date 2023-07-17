@@ -47,9 +47,9 @@ Your app is ready to be deployed!
 
 ##  You have a new requirement to implement for your application: its logic should stay exactly the same but it will need to have a different user interface (e.g. if you wrote a web app, a different UI may be a REPL). Please describe how you would go about implementing this new UI in your application? Would you need to restructure your solution in any way?
 
-If I was going to implement this as a CLI. I would keep core as is there is no react code in there and it is the main logic. I would definately need to redo the web part as pages wouldn't make sense. I would keep the event bus and implement it differently as document isn't available. I would look for an event bus libary.  I could then still have a listener to output to the user.
+If I was going to implement this as a CLI. I would keep core as there is no react code in there and it is the main logic. I would definitely need to redo the web part as using pages wouldn't make sense. I would keep the event bus and implement it differently as the document isn't available. I would look for an event bus library. I could then still have a listener to output to the user.
 
-I would refactor IntervalOutput to move logic over to core and make is not so tightly coupled.
+I would refactor IntervalOutput to move logic over to core and make it not so tightly coupled.
 
 ##  You now need to make your application “production ready”, and deploy it so that it can be used by customers. Please describe the steps you’d need to take for this to happen.
 solution has some production ready features such as Babel, tsc and webpack
@@ -63,4 +63,4 @@ solution has some production ready features such as Babel, tsc and webpack
   3.3 deploy to cloud statically using code like pulumi
 
 ##  What did you think about this coding test - is there anything you’d suggest in order to improve it?
-There are a lot of parts to this coding test. It took a bit for me to get my head around it. Maybe make the description a bit clearer. Also make it clearer what you expect. e.g. tests etc.
+I liked the coding test it was an interesting challenge. There are a lot of parts to this coding test which may be hard for developers that don't have much. It took a bit for me to get my head around it. My suggestion is to make the description a bit clearer. Also, make it clearer what you looking for. e.g. tests.
